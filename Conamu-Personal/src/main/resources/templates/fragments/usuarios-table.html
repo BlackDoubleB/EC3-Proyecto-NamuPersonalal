@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+	<table th:fragment="table">
+		<thead style="background-color:  #6ab04c ;">
+			<tr>
+				<th>Nombres Completos</th>
+				<th>Correo</th>
+				<th>Rol</th>
+				<th>Usuario</th>
+				<th>Estado</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${trabajadores.empty}">
+				<td colspan="6"> No hay registros </td>
+			</tr>
+			
+			
+			<tr th:each="Trabajador : ${trabajadores}">
+				<td><span th:text="${Trabajador.persona.nombreCompletos}"> </span></td>
+				<td><span th:text="${Trabajador.persona.correo}"> </span></td>
+				<td><span th:text="${Trabajador.rol.nombreRol}"> </span></td>
+				<td><span th:text="${Trabajador.usuario}"> </span></td>
+				<td><span th:text="${Trabajador.estadoTrabajador.nombreEstado}"> </span></td>
+				<td>
+					<div class="text-center editar-reserva">
+						<div class="btn-group">
+							<button class="btn btn-dark btn-editar-usuario" 
+									th:data-id-trabajador="${Trabajador.idTrabajador}"><i
+									class="bi bi-pencil-fill"></i></button>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

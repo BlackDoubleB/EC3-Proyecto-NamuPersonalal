@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reservas</title>
+</head>
+
+<body>
+	<div th:fragment="table" id="table-reservas">
+		<div class="datagrid">
+			<table>
+				<thead style="background-color:  #6ab04c ;">
+					<tr>
+						<th>Ticket</th>
+						<th>Nombres Completos</th>
+						<th>Correo</th>
+						<th>Fecha</th>
+						<th>Horario</th>
+						<th>N° Personas</th>
+						<th>Estado</th>
+						<th>Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${paged.empty}">
+						<td colspan="8"> No hay registros </td>
+					</tr>
+
+					<tr th:each="Reserva : ${paged.content}">
+						<td><span th:text="${Reserva.ticket}"> </span></td>
+						<td><span th:text="${Reserva.consumidor.persona.nombreCompletos}"> </span></td>
+						<td><span th:text="${Reserva.consumidor.persona.correo}"> </span></td>
+						<td><span th:text="${Reserva.horarioReserva.fecha}"> </span></td>
+						<td><span th:text="${Reserva.horarioReserva.horario}"> </span></td>
+						<td><span th:text="${Reserva.cantidadPersonas}"> </span></td>
+						<td><span th:text="${Reserva.estadoReserva.nombreEstado}"> </span></td>
+						<td>
+							<button type="button" class="btn-editar-reserva button-editar"
+								th:data-id-reserva="${Reserva.idReserva}">Editar
+								<i class="bi bi-pencil-square"></i>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<nav aria-label="Page navigation example" style="margin-top: 2rem;display: flex; justify-content: end; align-items: center; gap: 1.5rem;">
+			<span style="color: lightslategray; font-size: 14px;" th:text="${legend}"></span>
+			<ul class="pagination" style="margin: 0">
+				<li th:class="${paged.first ? 'page-item disabled' : 'page-item'}">
+					<a class="page-link anterior" th:data-actual-page="${paged.number}">Anterior</a>
+				</li>
+
+				<li th:each="Page : ${pages}" th:class="${Page == paged.number + 1 ? 'page-item active' : 'page-item'}">
+					<a class="page-link pagina" href="#" th:text="${Page}" th:data-actual-page="${paged.number}" th:data-page="${Page - 1}"></a></li>
+
+				<li th:class="${paged.last ? 'page-item disabled' : 'page-item'}">
+					<a class="page-link siguiente" href="#" th:data-actual-page="${paged.number}">Siguiente</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</body>
+
+</html>

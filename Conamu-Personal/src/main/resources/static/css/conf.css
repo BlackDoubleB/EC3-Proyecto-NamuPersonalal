@@ -1,0 +1,52 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+
+*{
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+body{
+	background-color: #bcbcbcdc;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* CAJA VISTA */
+
+.caja{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	width: 99%;
+	flex: 1;
+    margin: 20px;
+    gap: 15px;
+
+}
+
+.container-p{
+	width: 95%;
+	background-color: #ffffff;
+	height: 50%;
+	border-radius: 10px;
+}
+
+/* SECCION CARTA */
+.container-q{
+    width: 95%;
+	background-color: #ffffff;
+	height: 40%;
+	border-radius: 10px;
+}
+.carta{
+    width: 95%;
+	background-color: #ffffff;
+	height: 50%;
+	border-radius: 10px;
+}

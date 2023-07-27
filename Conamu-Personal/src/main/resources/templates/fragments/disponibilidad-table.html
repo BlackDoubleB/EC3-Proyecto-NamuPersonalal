@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+	<table th:fragment="table">
+		<thead style="background-color:  #6ab04c ;">
+			<tr>
+				<th>Fecha</th>
+				<th>Horario</th>
+				<th>N° Mesas</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${horarios.empty}">
+				<td colspan="3"> No hay registros </td>
+			</tr>
+
+			<tr th:each="Horario : ${horarios}">
+				<td><span th:text="${Horario.fecha}"> </span></td>
+				<td><span th:text="${Horario.horario}"> </span></td>
+				<td><span th:text="${Horario.numeroMesas}"> </span></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

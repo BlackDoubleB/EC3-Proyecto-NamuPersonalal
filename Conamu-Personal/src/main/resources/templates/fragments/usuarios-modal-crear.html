@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideBar</title>
+</head>
+
+<body>
+
+	<!-- The Modal -->
+	<div class="modal fade" id="modalCrear" th:fragment="modal-crear">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header bg-primary text-white">
+					<h4 class="modal-title">Usuario</h4>
+					<!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+				</div>
+				<!-- Modal Main -->
+				<div class="modal-body">
+					<form action="">
+						<!--  General -->
+						<div class="form-group" style="display: flex; gap: 0.5rem; flex-direction: column;">
+							<div class="controls-main col-lg-12">
+								<label for="name">Nombres Completos</label>
+								<div class="controls">
+									<input type="text" id="name" class="form-control" name="name">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="dni">DNI</label>
+								<div class="controls">
+									<input type="text" id="dni" class="form-control" name="dni">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="telefono">Teléfono</label>
+								<div class="controls">
+									<input type="text" id="telefono" class="form-control" name="telefono">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="email">Correo Electronico</label>
+								<div class="controls">
+									<input type="text" id="email" class="form-control" name="email">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="fruit">Rol</label>
+								<div class="controls">
+									<select class="form-select" id="rol">
+										<option value="" disabled selected> Seleccione un rol </option>
+										<option th:each="Rol : ${roles}" 
+										th:value="${Rol.idRol}" 
+										th:text="${Rol.nombreRol}"></option>
+									</select>
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="usuario">Usuario</label>
+								<div class="controls">
+									<input type="text" id="usuario" class="form-control" name="usuario">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="contrasena">Contraseña</label>
+								<div class="controls">
+									<input type="password" id="contrasena" class="form-control" name="contrasena">
+								</div>
+							</div>
+							<div class="controls-main col-lg-12">
+								<label for="confirm-contrasena">Confirmar Contraseña</label>
+								<div class="controls">
+									<input type="password" id="confirm-contrasena" class="form-control" name="confirm-contrasena">
+								</div>
+							</div>
+
+						</div>
+					</form>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn button-guardar btn-primary"
+						id="btn-guardar-usuario">Guardar</button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+	</div>
+	<!--Fin Modal -->
+
+</body>
+
+</html>
